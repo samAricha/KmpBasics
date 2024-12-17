@@ -20,6 +20,8 @@ logback = "1.5.11"
 
 room = "2.7.0-alpha11"
 ksp = "2.0.21-1.0.27"
+sqlite = "2.5.0-SNAPSHOT"
+
 
 koin = "4.0.0"
 koinComposeMultiplatform = "4.0.0"
@@ -51,6 +53,7 @@ ktor-server-tests = { module = "io.ktor:ktor-server-test-host", version.ref = "k
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-runtime-android = { module = "androidx.room:room-runtime-android", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
 
 
 lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewModel"}

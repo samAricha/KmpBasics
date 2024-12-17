@@ -1,3 +1,4 @@
+import org.gradle.kotlin.dsl.implementation
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -48,6 +49,8 @@ kotlin {
             implementation(projects.shared)
 
             implementation(libs.room.runtime)
+            implementation(libs.sqlite.bundled)
+
 
             api(libs.koin.core)
             implementation(libs.koin.compose)

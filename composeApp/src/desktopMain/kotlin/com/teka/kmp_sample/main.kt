@@ -3,14 +3,19 @@ package com.teka.kmp_sample
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import com.teka.kmp_sample.database.getPeopleDatabase
+import com.teka.kmp_sample.di.initKoin
 
-fun main() = application {
-    Window(
-        onCloseRequest = ::exitApplication,
-        title = "KmpSample",
-    ) {
-        val dao = getPeopleDatabase().build().peopleDao()
+fun main() {
+    initKoin()
 
-        App(dao)
+    application {
+        Window(
+            onCloseRequest = ::exitApplication,
+            title = "KmpSample",
+        ) {
+            val dbBuilder = getPeopleDatabase()
+
+            App(dbBuilder)
+        }
     }
 }
