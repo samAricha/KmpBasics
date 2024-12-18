@@ -83,6 +83,7 @@ fun AppTheme(
     }
 
     MaterialTheme(
+        typography = RajdhaniTypography(),
         colorScheme = colors,
         content = content
     )
