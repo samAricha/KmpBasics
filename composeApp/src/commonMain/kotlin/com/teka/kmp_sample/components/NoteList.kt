@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.teka.kmp_sample.components.EmptyState
-import viewmodel.HomeViewModel
+import com.teka.kmp_sample.screens.viewmodel.HomeViewModel
 
 @Composable
 fun NoteList(viewModel: HomeViewModel, navController: NavHostController) {

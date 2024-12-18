@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -19,6 +20,7 @@ import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import com.teka.kmp_sample.data_layer.database.PeopleDatabase
 import com.teka.kmp_sample.data_layer.entities.PersonEntity
 import com.teka.kmp_sample.dependencies.MyViewModel
+import com.teka.kmp_sample.navigation.NavGraph
 import com.teka.kmp_sample.ui.theme.AppTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -31,71 +33,76 @@ import org.koin.compose.viewmodel.koinViewModel
 @Preview
 fun App(db: PeopleDatabase) {
 
+    val navController: NavHostController = rememberNavController()
+    AppTheme {
+        NavGraph(navController = navController)
+    }
+
 
 //    val db = getDbInstance(builder)
-    val peopleDao = db.peopleDao()
-
-    AppTheme {
-
-        KoinContext {
-            NavHost(
-                navController = rememberNavController(),
-                startDestination = "home"
-            ) {
-                composable(route = "home") {
-                    val viewModel = koinViewModel<MyViewModel>()
-//                    Box(
+//    val peopleDao = db.peopleDao()
+//
+//    AppTheme {
+//
+//        KoinContext {
+//            NavHost(
+//                navController = rememberNavController(),
+//                startDestination = "home"
+//            ) {
+//                composable(route = "home") {
+//                    val viewModel = koinViewModel<MyViewModel>()
+////                    Box(
+////                        modifier = Modifier
+////                            .fillMaxSize(),
+////                        contentAlignment = Alignment.Center
+////                    ) {
+////                        Text(
+////                            text = viewModel.getHelloWorldString()
+////                        )
+////                    }
+//
+//
+//                    val people by peopleDao.getAllPeople().collectAsState(initial = emptyList())
+//                    val scope = rememberCoroutineScope()
+//
+//                    LaunchedEffect(true) {
+//                        val peopleList = listOf(
+//                            PersonEntity(name = "Aricha"),
+//                            PersonEntity(name = "Samson"),
+//                            PersonEntity(name = "Momanyi"),
+//                        )
+//                        peopleList.forEach {
+//                            peopleDao.upsert(it)
+//                        }
+//                    }
+//
+//
+//                    LazyColumn(
 //                        modifier = Modifier
 //                            .fillMaxSize(),
-//                        contentAlignment = Alignment.Center
+//                        contentPadding = PaddingValues(16.dp),
 //                    ) {
-//                        Text(
-//                            text = viewModel.getHelloWorldString()
-//                        )
+//                        items(people) { person ->
+//                            Text(
+//                                text = person.name,
+//                                modifier = Modifier
+//                                    .fillMaxWidth()
+//                                    .clickable {
+//                                        scope.launch {
+//                                            peopleDao.delete(person)
+//                                        }
+//                                    }
+//                                    .padding(16.dp)
+//                            )
+//                        }
 //                    }
-
-
-                    val people by peopleDao.getAllPeople().collectAsState(initial = emptyList())
-                    val scope = rememberCoroutineScope()
-
-                    LaunchedEffect(true) {
-                        val peopleList = listOf(
-                            PersonEntity(name = "Aricha"),
-                            PersonEntity(name = "Samson"),
-                            PersonEntity(name = "Momanyi"),
-                        )
-                        peopleList.forEach {
-                            peopleDao.upsert(it)
-                        }
-                    }
-
-
-                    LazyColumn(
-                        modifier = Modifier
-                            .fillMaxSize(),
-                        contentPadding = PaddingValues(16.dp),
-                    ) {
-                        items(people) { person ->
-                            Text(
-                                text = person.name,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .clickable {
-                                        scope.launch {
-                                            peopleDao.delete(person)
-                                        }
-                                    }
-                                    .padding(16.dp)
-                            )
-                        }
-                    }
-
-
-                }
-            }
-        }
-
-    }
+//
+//
+//                }
+//            }
+//        }
+//
+//    }
 }
 
 

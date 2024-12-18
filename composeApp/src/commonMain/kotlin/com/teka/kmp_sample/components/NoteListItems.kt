@@ -3,12 +3,15 @@ package ui.components
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.teka.kmp_sample.components.NoteItem
-import viewmodel.HomeViewModel
+import com.teka.kmp_sample.screens.viewmodel.HomeViewModel
+
+
 
 @Composable
 fun NoteListItems(
