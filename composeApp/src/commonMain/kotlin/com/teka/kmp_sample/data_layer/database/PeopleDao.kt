@@ -1,4 +1,4 @@
-package com.teka.kmp_sample.database
+package com.teka.kmp_sample.data_layer.database
 
 import androidx.room.Dao
 import androidx.room.Delete

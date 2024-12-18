@@ -17,8 +17,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.room.RoomDatabase
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
-import com.teka.kmp_sample.database.PeopleDatabase
-import com.teka.kmp_sample.database.Person
+import com.teka.kmp_sample.data_layer.database.PeopleDatabase
+import com.teka.kmp_sample.data_layer.database.Person
 import com.teka.kmp_sample.dependencies.MyViewModel
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -29,10 +29,10 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 @Preview
-fun App(builder: RoomDatabase.Builder<PeopleDatabase>) {
+fun App(db: PeopleDatabase) {
 
 
-    val db = getDbInstance(builder)
+//    val db = getDbInstance(builder)
     val peopleDao = db.peopleDao()
 
     MaterialTheme {

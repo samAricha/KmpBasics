@@ -1,9 +1,7 @@
-package com.teka.kmp_sample.database
+package com.teka.kmp_sample.data_layer.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.teka.kmp_sample.database.PeopleDao
-import com.teka.kmp_sample.database.Person
 
 @Database(
     entities = [Person::class],

@@ -2,7 +2,7 @@ package com.teka.kmp_sample
 
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import com.teka.kmp_sample.database.getPeopleDatabase
+import com.teka.kmp_sample.data_layer.database.getPeopleDatabase
 import com.teka.kmp_sample.di.initKoin
 
 fun main() {
