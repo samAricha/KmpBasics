@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 
 
 fun getPeopleDatabase(context: Context): PeopleDatabase {
-    val dbFile = context.getDatabasePath("people.db")
+    val dbFile = context.getDatabasePath("people_room.db")
     return Room.databaseBuilder<PeopleDatabase>(
         context = context.applicationContext,
         name = dbFile.absolutePath
@@ -16,13 +16,3 @@ fun getPeopleDatabase(context: Context): PeopleDatabase {
         .setQueryCoroutineContext(Dispatchers.IO)
         .build()
 }
-
-
-//fun getPeopleDatabase(ctx: Context): RoomDatabase.Builder<PeopleDatabase> {
-//    val appContext = ctx.applicationContext
-//    val dbFile = appContext.getDatabasePath("people_room.db")
-//    return Room.databaseBuilder<PeopleDatabase>(
-//        context = appContext,
-//        name = dbFile.absolutePath
-//    )
-//}

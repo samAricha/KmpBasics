@@ -11,5 +11,6 @@ import androidx.room.RoomDatabase
 abstract class PeopleDatabase: RoomDatabase() {
 
     abstract fun peopleDao(): PeopleDao
+    abstract fun noteDao(): NoteDao
 
 }
