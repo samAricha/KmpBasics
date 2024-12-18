@@ -7,8 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -18,8 +17,9 @@ import androidx.navigation.compose.rememberNavController
 import androidx.room.RoomDatabase
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import com.teka.kmp_sample.data_layer.database.PeopleDatabase
-import com.teka.kmp_sample.data_layer.database.Person
+import com.teka.kmp_sample.data_layer.entities.PersonEntity
 import com.teka.kmp_sample.dependencies.MyViewModel
+import com.teka.kmp_sample.ui.theme.AppTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import kotlinx.coroutines.Dispatchers
@@ -35,7 +35,7 @@ fun App(db: PeopleDatabase) {
 //    val db = getDbInstance(builder)
     val peopleDao = db.peopleDao()
 
-    MaterialTheme {
+    AppTheme {
 
         KoinContext {
             NavHost(
@@ -60,9 +60,9 @@ fun App(db: PeopleDatabase) {
 
                     LaunchedEffect(true) {
                         val peopleList = listOf(
-                            Person(name = "Aricha"),
-                            Person(name = "Samson"),
-                            Person(name = "Momanyi"),
+                            PersonEntity(name = "Aricha"),
+                            PersonEntity(name = "Samson"),
+                            PersonEntity(name = "Momanyi"),
                         )
                         peopleList.forEach {
                             peopleDao.upsert(it)

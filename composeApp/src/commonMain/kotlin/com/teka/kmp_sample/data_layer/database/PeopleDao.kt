@@ -4,18 +4,19 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
+import com.teka.kmp_sample.data_layer.entities.PersonEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PeopleDao {
 
     @Upsert
-    suspend fun upsert(person: Person)
+    suspend fun upsert(personEntity: PersonEntity)
 
     @Delete
-    suspend fun delete(person: Person)
+    suspend fun delete(personEntity: PersonEntity)
 
-    @Query("SELECT * FROM person")
-    fun getAllPeople(): Flow<List<Person>>
+    @Query("SELECT * FROM people")
+    fun getAllPeople(): Flow<List<PersonEntity>>
 
 }
